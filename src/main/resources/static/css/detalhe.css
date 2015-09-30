@@ -1,0 +1,233 @@
+.imagem-detalhe-produto{
+    height: 80%;
+    width: 80%;
+}
+.tiraPadding{
+    padding-left: 0px !important;
+}
+
+#template-colher{
+	margin-left: 5px;
+    float: left;
+}
+.sem-colher{
+	float: left;
+}
+
+.colher-img {
+	height: 70px;
+	width: 50px;
+}
+
+.colher {
+	margin-left: 5px;
+	float: left;
+	height: 60px;
+    width: 50px;
+}
+
+.texto-numero-colher{
+    margin-left: 10px;
+    float: left;
+}
+
+.texto-colheres{
+    margin-left: 10px;
+    float: left;
+}
+
+.medidas-visuais{
+	margin-top: 45px;
+	margin-bottom: 60px;
+	background-color: #F5F5F5;
+}
+
+.medidas-visuais-titulo{
+	float: left;
+}
+
+.tamanho-div-imagem{
+    width: 600px;
+    height: 350px;
+    margin-bottom: 45px;
+}
+
+.alinhamentos h3{
+    margin-top: 0;
+}
+
+.espacoAcucar, .espacoSal, .espacoGordura {
+    margin-bottom: 30px;
+}
+.espacamentoH2{
+margin:0;
+
+}
+
+.tamanhoFonte {
+    font-size: 20px;
+}
+
+.aparenciaTabela {
+    font-size: 14px !important;
+    border-radius: 4px !important;
+    backgroud-color: #888;
+    float: right;
+}
+
+.ajuste-tamanho-td{
+    width: 200px;
+}
+
+.fonte {
+    font-style: italic;
+    font-size: 12px;
+}
+#porcaoAlimento{
+    margin-bottom: 15px;
+}
+
+#tituloAlimento{ /*
+    margin-top: 60px;
+    width: 100%;
+*/ }
+
+.titulo-pagina-detalhe {
+	padding-top: 0px;
+	width: 100%;
+	height: 100px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.tirando-margin{
+    margin-top: 0px;
+}
+
+#tituloMedidas{
+    text-align: center;
+}
+
+
+
+#imagem-detalhe{
+    width: 500px;
+    height: 350px;
+
+}
+
+#medidas-visuais{
+    width: 100%;
+    height: 100%;
+    margin-top: 30px;
+    background-color: #F5F5F5;
+}
+
+
+
+.tamanho-ul {
+    height: 350px;
+}
+
+.margin-btn-ver-medidas{
+    margin-bottom:15px;
+    width: 100%;
+}
+.ancora-link{
+    height: 40px;
+    text-align: center;
+    padding-top: 5px;
+    text-decoration: none;
+    font-size: 20px;
+    float: left;
+    margin-top: 20px;
+}
+
+.ajuste-ancora {
+    margin-top: 30px;
+}
+
+.botoes-admin{
+    margin-top: -45px;
+    margin-bottom: 10px;
+}
+
+.botao-add-calculadora{
+    margin-left: 50px;
+}
+
+.imagem-seta-ancora{
+    width: 50px;
+    margin-right: 40px;
+}
+
+.alinhar-seta-direita{
+    float: right;
+}
+
+.seta-ancora{
+    width: 100%;
+    position: fixed;
+}
+.slider-estilos{
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.output {
+    color: #888;
+    font-size: 14px;
+    padding-top: 1px;
+    margin-left: 5px;
+    vertical-align: top;
+    float: left !important;
+}
+
+/*Tabela detalhe do alimento*/
+
+.titulo-medio-detalhe{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.titulo-caloria {
+    float: left;
+}
+
+.titulo-caloria-valor {
+    float: left;
+    padding-left: 5px;
+}
+
+.titulo-caloria-div {
+    width: 40%;
+}
+
+.ajustando-tabela {
+    text-align: center;
+}
+
+.centraliza-texto-detalhe {
+    width: 90%;
+    float: left;
+}
+
+.ajustando-tabela-2{
+    padding-left: 0px;
+}
+
+.ajustando-container {
+    margin-top: 15px !important;
+}
+
+#slider-botao{
+    margin-top: 6px;
+}
+
+.st0{
+    fill:none;
+    stroke: rgb(83, 183, 120) !important;
+    stroke-width:2;
+    stroke-miterlimit:10;
+}
+

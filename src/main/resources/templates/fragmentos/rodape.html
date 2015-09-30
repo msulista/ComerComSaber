@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:class="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.springframework.org/security/tags">
+<link href="css/../principal.css" rel="stylesheet" type="text/css"/>
+    <body>
+        <nav class="margem-rodape footer-bg" th:fragment="rodape">
+            <footer id="footer" class="container">
+                <div class="col-lg-12 col-mg-12">
+                    <div class="col-lg-6 col-mg-6 alinhamento-footer ajuste-alinhamento">
+
+                        <div class="col-lg-12 col-mg-12">
+                            <span class="titulo-rodape">ALIMENTOS</span>
+                        </div>
+
+                        <div class="col-lg-6 col-mg-6">
+                            <li>
+                                <a href="/alimentos?categoria=1">Bebidas</a>
+                            </li>
+                            <li>
+                                <a href="/alimentos?categoria=2">Carnes e Similares</a>
+                            </li>
+                            <li>
+                                <a href="/alimentos?categoria=3">Cereais e Derivados</a>
+                            </li>
+                            <li>
+                                <a href="/alimentos?categoria=4">Frutas e Derivados</a>
+                            </li>
+                            <li>
+                                <a href="/alimentos?categoria=5">Gorduras e Óleos</a>
+                            </li>
+                            <li>
+                                <a href="/alimentos?categoria=6">Alimentos Industrializados</a>
+                            </li>
+                            <li>
+                                <a href="/alimentos?categoria=7">Leguminosas e Derivados</a>
+                            </li>
+                        </div>
+                        <div class="col-lg-6 col-mg-6">
+                            <li>
+                                <a href="/alimentos?categoria=8">Leites e Derivados</a>
+                            </li>
+
+                            <li>
+                                <a href="/alimentos?categoria=9">Nozes e Sementes</a>
+                            </li>
+                            
+                            <li>
+                                <a href="/alimentos?categoria=11">Pescados e Frutos do Mar</a>
+                            </li>
+
+                            <li>
+                                <a href="/alimentos?categoria=12">Produtos Açucarados</a>
+                            </li>
+
+                            <li>
+                                <a href="/alimentos?categoria=13">Verduras, Hortaliças e Derivados</a>
+                            </li>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-mg-3 alinhamento-footer">
+                        <span class="titulo-rodape">PÁGINAS</span>
+
+                        <li>
+                            <a th:href="@{/alimentos}">Alimentos</a>
+                        </li>
+
+                        <li>
+                            <a th:href="@{/calculadora}">Calculadora</a>
+                        </li>
+
+                        <li>
+                            <a th:href="@{/sobre}">Sobre</a>
+                        </li>
+
+                        <li>
+                            <a th:href="@{/contato}">Contato</a>
+                        </li>
+                    </div>
+
+                    <div class="col-lg-3 col-mg-3 alinhamento-footer">
+                        <span class="titulo-rodape">COMPARTILHAMENTO</span>
+
+                        <li class="espacoRedes">
+                            <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+                            <script type="text/javascript">stLight.options({publisher: "172f232c-376f-4c3f-b6fb-69b2870eb6f6", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+                            <span class='st_facebook_hcount' displayText='Facebook'></span>
+                            <span class='st_twitter_hcount' displayText='Tweet'></span>
+                        </li>
+
+                        <div class="espacoAdm">
+                            <span class="titulo-rodape">ADMINISTRADOR</span>
+                        </div>
+
+                        <li th:if="${#httpServletRequest.remoteUser == null}">
+                            <a th:href="@{/login}">Login</a>
+                        </li>
+
+                        <li th:if="${#httpServletRequest.remoteUser != null}">
+                            <a th:href="@{/logout}">Logout</a>
+                        </li>
+
+                        <li th:if="${#httpServletRequest.remoteUser != null}">
+                            <a href="/cadastroAlimento">Cadastrar Alimentos</a>
+                        </li>
+
+                        <li th:if="${#httpServletRequest.isUserInRole('ADMIN')}">
+                            <a href="/cadastrarUsuario">Cadastrar Usuários</a>
+                        </li>
+
+                        <li th:if="${#httpServletRequest.isUserInRole('ADMIN')}">
+                            <a href="/formularioDeletarUsuario">Deletar Usuários</a>
+                        </li>
+
+                        <li th:if="${#httpServletRequest.remoteUser != null}">
+                            <a href="/editarUsuario">Editar Perfil</a>
+                        </li>
+
+
+
+                    </div>
+                </div>
+            </footer>
+        </nav>
+    </body>
+ </html>

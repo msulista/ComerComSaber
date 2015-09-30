@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+
+    <title>Comer com saber</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link th:replace="fragmentos/header :: flaticon-css" />
+    <link th:replace="fragmentos/header :: bootstrap-css" />
+    <link th:replace="fragmentos/header :: jqueryui-css" />
+    <link th:replace="fragmentos/header :: principal-css" />
+    <link th:replace="fragmentos/header :: favicon-ico"/>
+    <link th:replace="fragmentos/header :: busca-icon" />
+    <link th:replace="fragmentos/header :: busca-css"/>
+    <script th:replace="fragmentos/header :: jquery"/>
+    <script th:replace="fragmentos/header :: jqueryui"/>
+    <script th:replace="fragmentos/header :: bootstrap-js"/>
+    <script th:replace="fragmentos/header :: query-string-js"/>
+    <script th:replace="fragmentos/header :: busca"/>
+
+
+    <link href="css/home.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="/js/classie.js"/>
+    <script type="text/javascript" src="/js/modernizr.custom.js"/>
+    <script type="text/javascript" src="/js/home.js"/>
+    <script type="text/javascript" src="../js/sliderImagem.js"/>
+    <script type="text/javascript" src="../js/sliderHeader.js"/>
+    <link href="css/sliderImage.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body id="ancora-topo" class="index">
+
+<nav th:replace="fragmentos/header :: cabecalho-home(${nomeUsuario})"></nav>
+
+<header class="header">
+
+            <div id="background_cycler" class="grad">
+                <img id="1" class="active" src="http://res.cloudinary.com/dq5mndrjt/image/upload/c_scale,w_1400/v1440160059/15800084796_ca92a05193_h_x04cfa.jpg" />
+                <img id="2" src="http://res.cloudinary.com/dq5mndrjt/image/upload/c_scale,w_1400/v1440160150/15823720245_5d61fda886_k_qr5cct.jpg" />
+                <img id="3" src="http://res.cloudinary.com/dq5mndrjt/image/upload/c_scale,w_1400/v1440159957/header-bg_bpmneo.jpg" />
+                <img id="4" src="http://res.cloudinary.com/dq5mndrjt/image/upload/c_scale,w_1400/v1440160139/15821855591_8ba36cff8a_k_tp9jln.jpg" />
+            </div>
+            <div class="intro-text">
+
+                <div class="intro-heading">
+                    <h1> Você sabe a quantidade de nutrientes dos alimentos?</h1>
+                </div>
+
+                <div class="intro-lead-in">
+                    Veja a quantidade de açúcar, gordura e sódio (sal) dos alimentos de uma forma ilustrativa (colheres de chá).
+                </div>
+        <div class="buscar-home">
+            <input type="text" class="form-control caixa-busca" placeholder="Digite o nome de um alimento" id="input-busca" maxlength="256"/>
+            <button type="submit" class="botao-buscar btn" id="btn-busca">
+                <span>BUSCAR</span>
+            </button>
+            <a class="scrollto" href="#ancora-corpo">
+                <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                    <polyline id="XMLID_2_" class="st0" points="39,24.5 25,38.5 11,24.5 "></polyline>
+                </svg>
+                <div id="ancora-corpo">
+                </div>
+            </a>
+
+        </div>
+    </div>
+</header>
+<div class="corpo-home">
+    <section id="services" class="colheres">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Por que colheres?</h2>
+                    <p class="texto-sessao text-muted">Os rótulos apresentam as informações nutricionais em gramas, que são difíceis de compreender.
+                        Assim, utilizamos porções caseiras e colheres de chá para facilitar o entendimento da quantidade de açúcar, gorduras e sal presentes nos alimentos.</p>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                            <span>
+                                <img class="colher-info-home" src="/img/colher-acucar.svg"/>
+                            </span>
+                    <h4 class="service-heading">Açúcar de adição</h4>
+                    <p class="text-muted">A colher branca representa a quantidade de sacarose, que é o açúcar simples ou de adição nos alimentos.</p>
+                </div>
+                <div class="col-md-4">
+                            <span>
+                                <img class="colher-info-home" src="/img/colher-gordura.svg"/>
+                            </span>
+                    <h4 class="service-heading">Gordura</h4>
+                    <p class="text-muted">A colher amarela representa a quantidade de gordura total, sem distinguir o tipo de gordura.</p>
+                </div>
+                <div class="col-md-4">
+                            <span>
+                                <img class="colher-info-home" src="/img/colher-sal.svg"/>
+                            </span>
+                    <h4 class="service-heading">(Sódio) Sal</h4>
+                    <p class="text-muted">A colher azul representa a quantidade de sódio, que foi transformado em sal, para facilitar a compreensão.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="calculadora-slider">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3 class="section-heading">Descubra o que você ingere diariamente</h3>
+                    <p class="text-muted">Com a ferramenta “Calculadora” você pode avaliar a quantidade de açúcar, gordura e sódio (sal) ingeridos no seu consumo diário.</p>
+                    <a th:href="@{'/calculadora'}" id="btn-add-home" class="botao-preenchido">Calcule seu consumo</a>
+                </div>
+                <div class="col-md-8">
+                    <span>
+                        <img src="http://res.cloudinary.com/dq5mndrjt/image/upload/v1440679698/fruta-capa_zzp5wi.png"/>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <nav th:replace="fragmentos/rodape :: rodape"></nav>
+</div>
+
+<script src="/js/cbpAnimatedHeader.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+
+    <title>Cadastrar Usuário</title>
+    <title>Login</title>
+    <link href="css/formularioAlimento.css" rel="stylesheet"/>
+
+    <link th:replace="fragmentos/header :: flaticon-css" />
+    <link th:replace="fragmentos/header :: bootstrap-css" />
+    <link th:replace="fragmentos/header :: jqueryui-css" />
+    <link th:replace="fragmentos/header :: principal-css" />
+    <link th:replace="fragmentos/header :: favicon-ico"/>
+    <link th:replace="fragmentos/header :: busca-icon" />
+    <link th:replace="fragmentos/header :: busca-css"/>
+    <script th:replace="fragmentos/header :: jquery"/>
+    <script th:replace="fragmentos/header :: jqueryui"/>
+    <script th:replace="fragmentos/header :: bootstrap-js"/>
+    <script th:replace="fragmentos/header :: query-string-js"/>
+    <script th:replace="fragmentos/header :: busca"/>
+    <script type="text/javascript" src="/js/home.js"/>
+
+    <link rel="stylesheet" type="text/css" href="/css/formularioAlimento.css"/>
+    <link href="css/formularioUsuario.css" rel="stylesheet"/>
+
+
+</head>
+<body>
+<nav th:replace="fragmentos/header :: cabecalho(${nomeUsuario})"></nav>
+
+<div class="jumbotron">
+    <center>
+    <h2>Cadastrar Usuário</h2>
+    </center>
+</div>
+
+<div class="container">
+    <div class="row">
+        <form onSubmit="return validarCadastroUsuario();" class="form-horizontal" th:action="@{/gerenciarUsuario}" th:object="${usuario}" method="POST">
+            <div class="form-group">
+                <input TYPE="hidden" NAME="codigo" id="codigo" th:field="*{codigo}"/>
+
+                <div id="blocoNomeUsuario" class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+                    <div>
+                        <label for="nomeDoUsuario" class="control-label">Nome:</label>
+                        <label class="obrigatoria">*</label>
+                        <input th:field="*{nome}" type="text" name="nome" class="form-control" id="nomeDoUsuario" placeholder="Nome usuário"/>
+                    </div>
+
+                    <div id="espacoErroNome"  class="div-erro">
+                        <div class="alert alert-danger centralizar-texto" id="erroCampoNomeUsuario">
+                            <label>Preencha o campo com o nome do usuário. </label>
+                        </div>
+                    </div>
+                    <div th:if="${erroNome}">
+                        <div class="alert alert-danger centralizar-texto">
+                            <label>Preencha o campo com o nome do usuário. </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="blocoEmailUsuario" class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+                    <div>
+                        <label for="emailDoUsuario" class="control-label">E-mail:</label>
+                        <label class="obrigatoria">*</label>
+                        <input th:field="*{email}" type="text"  class="form-control" id="emailDoUsuario" placeholder="Email"/>
+                    </div>
+                    <div id="espacoErroEmail" class="div-erro">
+                        <div class="col-sm-12 alert alert-danger centralizar-texto" id="erroCampoEmailUsuario">
+                            <label>Preencha o campo com o email do usuário. </label>
+                        </div>
+                    </div>
+                    <div th:if="${erroEmailPadrao}">
+                        <div class="alert alert-danger centralizar-texto">
+                            <label>Preencha o campo com o email do usuário. </label>
+                        </div>
+                    </div>
+                    <div th:if="${erroEmailExiste}">
+                        <div class="alert alert-danger centralizar-texto">
+                            <label>Email do usuário já está cadastrado. </label>
+                        </div>
+                    </div>
+                </div>
+                <div id="blocoSenhaUsuario" class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+                    <div>
+                        <label for="senhaUsuario" class="control-label">Senha:</label>
+                        <label class="obrigatoria">*</label>
+                        <input th:field="*{senha}" type="password" name="password" class="form-control" id="senhaUsuario" placeholder="Senha"/>
+                    </div>
+                    <div id="espacoErroSenha" class="div-erro">
+                        <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroCampoSenhaUsuario">
+                            <label>Preencha o campo com a senha do usuário contendo 4 ou mais caracteres. </label>
+                        </div>
+                    </div>
+                    <div th:if="${erroSenhaTamanho}">
+                        <div class="alert alert-danger centralizar-texto">
+                            <label>Preencha o campo com a senha do usuário contendo 4 ou mais caracteres. </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="blocoRepetirSenha" class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+                    <div>
+                        <label for="senhaUsuarioRepetir" class="control-label">Repita a Senha:</label>
+                        <label class="obrigatoria">*</label>
+                        <input th:field="*{repetirSenha}" type="password" name="password" class="form-control" id="senhaUsuarioRepetir" placeholder="Senha"/>
+                    </div>
+                    <div id="espacoErroRepetirSenha" class="div-erro">
+                        <div class="col-sm-offset-0 col-sm-12 alert alert-danger centralizar-texto" id="erroCampoRepetirSenha">
+                            <label> As senhas não coincidem </label>
+                        </div>
+                    </div>
+                    <div th:if="${erroSenhaDiferente}">
+                        <div class="alert alert-danger centralizar-texto">
+                            <label>As senhas não coincidem. </label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="blocoNiveldeAcesso" class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+                    <div>
+                        <label for="comboRoles" class="control-label">Nível de Acesso:</label>
+                        <label class="obrigatoria">*</label>
+                        <select class="form-control" id="comboRoles" th:field="*{role}">
+                            <option th:each="role : ${T(br.com.aceleradora.comercomsaber.model.Role).values()}" th:value="${role}" th:text="${role.value}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div id="blocoBotoes" class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+                    <div>
+                        <a class="btn botao-vermelho botao-cancelar" id="cancelar" th:href="@{/}">Cancelar</a>
+                        <input class="btn botao botao-enviar" type="submit"  id="enviar" value="Enviar Dados"/>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+<script src="/js/cbpAnimatedHeader.js"></script>
+<nav th:replace="fragmentos/rodape :: rodape"></nav>
+</body>
+</html>

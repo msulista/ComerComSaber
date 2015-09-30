@@ -1,0 +1,32 @@
+.equipeFoto{
+	margin: 0px;
+}
+
+.thumbnail{
+    margin-bottom:6px;
+}
+
+.perfil{
+    margin-bottom:25px;
+}
+
+p{
+	font-size: 1.3em;
+}
+
+.legenda-foto{
+    font-size: 14px;
+}
+
+.legenda-foto-nome{
+
+    margin: 4px;
+    color: black;
+}
+
+.titulo-sobre{
+    margin-top:100px;
+    text-align: center;
+}
+
+

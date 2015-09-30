@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+	<head>
+		<title>Alimentos</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+		<meta charset="utf-8" />
+
+		<link th:replace="fragmentos/header :: flaticon-css" />
+		<link th:replace="fragmentos/header :: bootstrap-css" />
+		<link th:replace="fragmentos/header :: jqueryui-css" />
+		<link th:replace="fragmentos/header :: principal-css" />
+		<link th:replace="fragmentos/header :: favicon-ico"/>
+		<link th:replace="fragmentos/header :: busca-icon" />
+		<link th:replace="fragmentos/header :: busca-css"/>
+		<script th:replace="fragmentos/header :: jquery"/>
+		<script th:replace="fragmentos/header :: jqueryui"/>
+		<script th:replace="fragmentos/header :: bootstrap-js"/>
+		<script th:replace="fragmentos/header :: query-string-js"/>
+		<script th:replace="fragmentos/header :: busca"/>
+		<script type="text/javascript" src="/js/home.js"/>
+
+		<link rel="stylesheet" type="text/css" href="css/paginacao.css"/>
+		<link rel="stylesheet" type="text/css" href="css/grid.css"/>
+
+		<script src="js/paginacao.js"> </script>
+		<script src="js/categoria.js"> </script>
+		<script src="js/deletarAlimento.js"> </script>
+	</head>
+	<body>
+
+	<nav th:replace="fragmentos/header :: cabecalho(${nomeUsuario})"></nav>
+	<div  class="btn-group topo-grid">
+		<div id="menu-categoria" role="group" class="container">
+			<div class="row text-center">
+				<a href="/alimentos?categoria=1" class="col-lg-2 col-md-2 col-sm-4 col-xs-6 col-sm-4 col-xs-6 ">
+					<div class="categoria-img-nome" value="1">
+						<div class="categoria-img">
+							<img class="categoria-icone" src="/img/categorias/bebidas.svg"/>
+						</div>
+						<div class="categoria-nome">
+							Bebidas
+						</div>
+					</div>
+				</a>
+				<a href="/alimentos?categoria=2" class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+					<div class="categoria-img-nome" value="2">
+						<div class="categoria-img">
+							<img class="categoria-icone" src="/img/categorias/carnes.svg" />
+						</div>
+						<div class="categoria-nome">
+							Carnes e Derivados
+						</div>
+					</div>
+				</a>
+				<a href="/alimentos?categoria=3" class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+					<div class="categoria-img-nome" value="3">
+						<div class="categoria-img">
+							<img class="categoria-icone" src="/img/categorias/cereais.svg" />
+						</div>
+						<div class="categoria-nome">
+							Cereais e Derivados
+						</div>
+					</div>
+				</a>
+				<a href="/alimentos?categoria=4" class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+					<div class="categoria-img-nome" value="4">
+						<div class="categoria-img">
+							<img class="categoria-icone" src="/img/categorias/frutas.svg" />
+						</div>
+						<div class="categoria-nome">
+							Frutas e Derivados
+						</div>
+					</div>
+				</a>
+				<a href="/alimentos?categoria=5" class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+					<div class="categoria-img-nome" value="5">
+						<div class="categoria-img">
+							<img class="categoria-icone" src="/img/categorias/oleos.svg" />
+						</div>
+						<div class="categoria-nome">
+							Gorduras e Óleos
+						</div>
+					</div>
+				</a>
+				<a href="/alimentos?categoria=6" class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+					<div class="categoria-img-nome" value="6">
+						<div class="categoria-img">
+							<img class="categoria-icone" src="/img/categorias/industrializados.svg" />
+						</div>
+						<div class="categoria-nome">
+							Indrustrializados
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="row">
+				<a href="/alimentos?categoria=7" class="col-lg-2 col-md-2 col-sm-4 col-xs-6 ">
+					<div class="categoria-img-nome" value="7">
+						<div class="categoria-img">
+							<img class="categoria-icone" src="/img/categorias/leguminosas.svg" />
+						</div>
+						<div class="categoria-nome">
+							Leguminosas e Derivados
+						</div>
+					</div>
+				</a>
+				<a href="/alimentos?categoria=8" class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+					<div class="categoria-img-nome" value="8">
+						<div class="categoria-img">
+							<img class="categoria-icone" src="/img/categorias/leites.svg" />
+						</div>
+						<div class="categoria-nome">
+							Leites e Derivados
+						</div>
+					</div>
+				</a>
+				<a href="/alimentos?categoria=9" class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+					<div class="categoria-img-nome" value="9">
+						<div class="categoria-img">
+							<img class="categoria-icone" src="/img/categorias/nozes.svg" />
+						</div>
+						<div class="categoria-nome">
+							Nozes e Sementes
+						</div>
+					</div>
+				</a>
+				<a href="/alimentos?categoria=11" class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+					<div class="categoria-img-nome" value="11">
+						<div class="categoria-img">
+							<img class="categoria-icone" src="/img/categorias/pescados.svg" />
+						</div>
+						<div class="categoria-nome">
+							Pescados e Frutos do Mar
+						</div>
+					</div>
+				</a>
+				<a href="/alimentos?categoria=12" class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+					<div class="categoria-img-nome" value="12">
+						<div class="categoria-img">
+							<img class="categoria-icone" src="/img/categorias/acucarados.svg" />
+						</div>
+						<div class="categoria-nome">
+							Produtos Açucarados
+						</div>
+					</div>
+				</a>
+				<a href="/alimentos?categoria=13" class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+					<div class="categoria-img-nome" value="13">
+						<div class="categoria-img">
+							<img class="categoria-icone" src="/img/categorias/verduras.svg" />
+						</div>
+						<div class="categoria-nome">
+							Verduras, Hortaliças e Derivados
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="busca-letras">
+		<center>
+		<div id="menu-busca-letra">
+			<button class="btn btn-primary btn-lg buscaLetra" value="a">A</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="b">B</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="c">C</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="d">D</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="e">E</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="f">F</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="g">G</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="h">H</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="i">I</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="j">J</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="k">K</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="l">L</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="m">M</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="n">N</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="o">O</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="p">P</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="q">Q</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="r">R</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="s">S</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="t">T</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="u">U</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="v">V</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="w">W</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="x">X</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="y">Y</button>
+			<button class="btn btn-primary btn-lg buscaLetra" value="z">Z</button>
+		</div>
+		</center>
+	</div>
+
+	<div class="container wrapper-conteudo tamanho-minimo-pagina">
+		<center>
+			<h2 th:text="${erro}" class="msg-erro"></h2>
+		</center>
+		<div class="container">
+			<div class="row">
+				<div th:each="alimento : ${alimentos}"  class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
+					<a th:href="@{'/detalhe/' + ${alimento.codigo}}" class="list-group-item item-grid">
+						<div id="tamanho-max-card">
+							<div class="imagem-grid">
+								<img th:src="${alimento.urlImagemPequena}"/>
+							</div>
+							<div class="media-body texto-card">
+								<h4 class="media-heading teste-ellipsis" th:text="${alimento.nome}" id="alimento"></h4>
+								<p id="categoria" th:text="${alimento.categoria.nome}"></p>
+							</div>
+
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<center>
+			<nav th:if="${erro == null}" th:include="fragmentos/paginacao :: paginacao"></nav>
+		</center>
+
+		<div class="modal fade" id="alimento-deletado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+			<div class="modal-dialog ajuste-recuperar" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Alimento Deletado</h4>
+					</div>
+					<div class="modal-body">
+						<label class="alert alert-success col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3 text-center">Alimento deletado com sucesso!</label>
+					</div>
+					<div class="modal-footer">
+						<button name="Submit" type="submit"  value="Enviar dados" class="btn btn-primary formobjects" data-dismiss="modal">Fechar</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<nav th:replace="fragmentos/rodape :: rodape"></nav>
+	<script src="/js/cbpAnimatedHeader.js"></script>
+	</body>
+</html>

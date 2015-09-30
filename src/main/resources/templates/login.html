@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+
+    <title>Login</title>
+    <link th:replace="fragmentos/header :: flaticon-css" />
+    <link th:replace="fragmentos/header :: bootstrap-css" />
+    <link th:replace="fragmentos/header :: jqueryui-css" />
+    <link th:replace="fragmentos/header :: principal-css" />
+    <link th:replace="fragmentos/header :: favicon-ico"/>
+    <link th:replace="fragmentos/header :: busca-icon" />
+    <link th:replace="fragmentos/header :: busca-css"/>
+    <script th:replace="fragmentos/header :: jquery"/>
+    <script th:replace="fragmentos/header :: jqueryui"/>
+    <script th:replace="fragmentos/header :: bootstrap-js"/>
+    <script th:replace="fragmentos/header :: query-string-js"/>
+    <script th:replace="fragmentos/header :: busca"/>
+    <script type="text/javascript" src="/js/home.js"/>
+
+
+    <link href="css/formularioAlimento.css" rel="stylesheet"/>
+    <script src="js/validacaoLogin.js"/>
+</head>
+<body>
+
+    <nav th:replace="fragmentos/header :: cabecalho(${nomeUsuario})"></nav>
+
+    <div class="margem-down">
+
+        <div class="titulos-paginas">
+            <h1>Login</h1>
+        </div>
+
+        <div class="container-fluid">
+            <div class="bloco-login">
+                <form name="dados" data-toggle="validator" role="form" id="validarLogin" class="form-horizontal" th:action="@{/login}" th:object="${usuario}" method="POST">
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-4">
+                            <label for="emailLogin" class="control-label">E-mail:</label>
+                            <input type="text" name="username" class="form-control" id="emailLogin" placeholder="E-mail" tabindex="1"/>
+                        </div>
+                    </div>
+                    <div id="espacoErroEmail">
+                        <div class="col-sm-offset-4 col-sm-4 alert alert-danger" id="erro-email-login">
+                            <label>Preencha com um e-mail válido. email@dominio.com</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-4">
+                            <label for="senhaLogin" class="control-label">Senha:</label>
+                            <a class="link-senha" href=""  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat" tabindex="4">
+                                Esqueci senha
+                            </a>
+                            <input type="password" name="password" class="form-control" id="senhaLogin" placeholder="Senha" tabindex="2"/>
+
+                        </div>
+                    </div>
+                    <div id="espacoErroSenha">
+                        <div class="col-sm-offset-4 col-sm-4 alert alert-danger" id="erro-senha-login">
+                            <label>Digite sua senha.</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-4">
+                            <label for="remember-me">Manter Conectado</label>
+                            <input type="checkbox" name="remember-me" id="remember-me"/>
+                        </div>
+                    </div>
+
+                    <div th:if="${param.error}">
+                        <div class="col-sm-offset-4 col-sm-4 alert alert-danger">
+                            <label>Email ou Senha inválidos!</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-4">
+                            <button type="submit" id="btn-entrar" class="btn botao" tabindex="3">Entrar</button>
+                        </div>
+                    </div>
+
+                </form>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                    <div class="modal-dialog ajuste-recuperar" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="exampleModalLabel">Recuperar senha</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div>
+                                    <form name="dados" onSubmit="return validarRecuperacao();" class="form-horizontal" th:object="${usuario}" th:action="@{/emailRecuperar}" id="recuperarSenha" method="POST">
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-4 col-sm-5">
+                                                <label for="emailRecuperacao" class="control-label">E-mail:</label>
+                                                <input name="inputEmail" th:field="*{email}" type="text" class="form-control formbutton" id="emailRecuperacao" placeholder="Email" />
+                                            </div>
+                                        </div>
+                                        <div id="espacoErroEmailRecuperacao">
+                                            <div class="col-sm-offset-4 col-sm-5 alert alert-danger">
+                                                <label>Preencha com um e-mail válido. email@dominio.com</label>
+                                            </div>
+                                        </div>
+                                        <div th:if="${erroEmailNaoExiste}">
+                                            <div class="col-sm-offset-4 col-sm-5 alert alert-danger">
+                                                <label>E-mail não cadastrado.</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-4 col-sm-5">
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-4 col-sm-4">
+                                                <button type="submit" class="btn botao" id="submit" value="recuperar">Recuperar</button>
+                                            </div>
+                                        </div>
+                                        <div th:if="${sucesso}">
+                                            <div class="col-sm-offset-4 col-sm-5 alert alert-sucess">
+                                                <label>Verifique seu e-mail para recuperar sua senha</label>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button name="Submit" type="submit"  value="Enviar dados" class="btn botao-vermelho formobjects" data-dismiss="modal">Fechar</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav th:replace="fragmentos/rodape :: rodape"></nav>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+</body>
+</html>

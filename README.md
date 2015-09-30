@@ -1,5 +1,8 @@
-# Inimigos à Mesa
+#Aceleradora de metodologias Ágil 7
+Participei deste projeto com duração de 4 meses.
 
+# Inimigos à Mesa / Comer com Saber
+Nome inicial Inimigos à mesa, foi alterado no decorrer do projeto para Comer com saber.
 ## Exectuando o projeto (ambientes *nix e Windows):
 
 ## Ambiente *nix:
